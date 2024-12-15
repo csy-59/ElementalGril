@@ -30,6 +30,8 @@ public class FireBall : MonoBehaviour
         transform.position = _parent.position;
 
         rb.velocity = transform.forward * shotSpeed;
+        rb.AddTorque(transform.right * 300f);
+        rb.maxAngularVelocity = 300f;
         StartCoroutine(CoReset());
     }
 
@@ -47,25 +49,31 @@ public class FireBall : MonoBehaviour
         skill.EnqueueFireBall(this);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag(vineTag))
+        if(other.gameObject.CompareTag(vineTag))
         {
-            CollideWithVine();
+            CollideWithVine(other.gameObject);
         }
-        else if(collision.gameObject.CompareTag(enemyTag))
+        else if(other.gameObject.CompareTag(enemyTag))
         {
-            CollideWithEnemy();
+            CollideWithEnemy(other.gameObject);
         }
     }
 
-    private void CollideWithVine()
+    private void CollideWithVine(GameObject other)
     {
+        Vine vine = other.GetComponentInParent<Vine>();
+        
+        if (vine == null)
+            return;
+        
+        vine.SetFire();
 
         ReturnToQueue();
     }
 
-    private void CollideWithEnemy()
+    private void CollideWithEnemy(GameObject other)
     {
 
         ReturnToQueue();

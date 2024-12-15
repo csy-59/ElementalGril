@@ -29,7 +29,7 @@ public class FireBallSkill : SkillBase
     {
         FireBall ball = DequeueFireBall();
         ball.gameObject.SetActive(true);
-        ball.Shot(transform);
+        ball.Shot(parentTransform);
     }
 
     private void InstantiateFireBall()
