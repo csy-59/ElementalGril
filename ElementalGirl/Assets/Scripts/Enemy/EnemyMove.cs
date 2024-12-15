@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private EnemyStatus status;
+    [SerializeField] private EnemyAnimation anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
