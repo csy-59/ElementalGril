@@ -1,17 +1,18 @@
 [원소 이펙트]
-https://assetstore.unity.com/packages/vfx/trails-vfx-urp-242574
+https://assetstore.unity.com/packages/vfx/trails-vfx-urp-242574(괘적)
+https://assetstore.unity.com/packages/3d/props/rolling-balls-sci-fi-pack-free-297168(오브)
 <파이어 볼>
-https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-asset-vfx-particles-fireball-pack-263814
-https://assetstore.unity.com/packages/3d/props/rolling-balls-sci-fi-pack-free-297168
+https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-asset-vfx-particles-fireball-pack-263814(이펙트)
 <기타 이펙트>
 https://assetstore.unity.com/packages/vfx/particles/spells/magic-effects-free-247933
 
 [기믹]
 <덩쿨>
-https://assetstore.unity.com/packages/3d/environments/chinese-trumpet-vine-282517
+https://assetstore.unity.com/packages/3d/environments/chinese-trumpet-vine-282517(모델)
+https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-fire-vfx-urp-266226(불 이펙트)
 
 [적]
-https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762
+https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762(적)
 
 [맵]
-https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692
+https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692(맵)
