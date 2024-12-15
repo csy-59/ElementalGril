@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
     private int currentHp;
 
     public UnityEvent OnPlayerDeath { get; private set; }
+    public UnityEvent<int> OnPlayerHit { get; private set; }
 
     private void Awake()
     {
@@ -21,6 +22,10 @@ public class PlayerHP : MonoBehaviour
         if(currentHp <= 0)
         {
             Death();
+        }
+        else
+        {
+            OnPlayerHit?.Invoke(currentHp);
         }
     }
 

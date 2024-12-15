@@ -8,6 +8,7 @@ public class FireBall : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [Header("SkillStatus")]
+    [SerializeField] private int damage = 4;
     [SerializeField] private float shotSpeed = 2f;
     [SerializeField] private float lifeTime = 5f;
     private WaitForSeconds wfLifeTime = null;
@@ -75,6 +76,12 @@ public class FireBall : MonoBehaviour
 
     private void CollideWithEnemy(GameObject other)
     {
+        EnemyHP hp = other.GetComponentInParent<EnemyHP>();
+
+        if (hp == null)
+            return;
+
+        hp.GetDamage(damage);
 
         ReturnToQueue();
     }

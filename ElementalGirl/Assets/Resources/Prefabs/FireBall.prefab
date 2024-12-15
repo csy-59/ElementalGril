@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7507262527548886038}
-  shotSpeed: 2
-  lifeTime: 5
+  shotSpeed: 10
+  lifeTime: 3
   vineTag: Vine
   enemyTag: Enemy
 --- !u!54 &7507262527548886038

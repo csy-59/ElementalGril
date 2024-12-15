@@ -14,7 +14,7 @@ public class EnemyHP : MonoBehaviour
     private EnemyManager manager;
     private WaitForSeconds wfDeath;
 
-    public UnityEvent OnDeath { get; private set; }
+    public UnityEvent OnDeath { get; private set; } = new UnityEvent();
 
     private void Awake()
     {
@@ -25,6 +25,15 @@ public class EnemyHP : MonoBehaviour
 
         status.OnInit.RemoveListener(SetManager);
         status.OnInit.AddListener(SetManager);
+
+        status.OnReset.RemoveListener(ResetHP);
+        status.OnReset.AddListener(ResetHP);
+    }
+
+    private void ResetHP()
+    {
+        currentHP = maxHP;
+        status.IsAlive = false;
     }
 
     private void SetManager(EnemyManager _manager)
@@ -34,13 +43,15 @@ public class EnemyHP : MonoBehaviour
 
     public void GetDamage(int _damage)
     {
-        currentHP -= maxHP;
+        currentHP -= _damage;
         if(currentHP <= 0)
         {
             Death();
         }
-
-        Hit();
+        else
+        {
+            Hit();
+        }
     }
 
     private void Death()

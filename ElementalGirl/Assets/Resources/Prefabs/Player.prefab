@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 929484927341611482}
   m_Layer: 6
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,6 +570,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6214300383328182071}
     m_Modifications:
+    - target: {fileID: 2549885076670978272, guid: 6aa6e51a3e624f746b8ff9e1d1c80880,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2775569103434133621, guid: 6aa6e51a3e624f746b8ff9e1d1c80880,
         type: 3}
       propertyPath: m_LocalPosition.x

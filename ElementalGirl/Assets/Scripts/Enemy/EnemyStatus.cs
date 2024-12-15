@@ -16,8 +16,10 @@ public class EnemyStatus : MonoBehaviour
     public Transform PlayerTransform { get; private set; } = null;
 
 
-    public UnityEvent<EnemyManager> OnInit { get; private set; }
-    public UnityEvent OnReset { get; private set; }
+    public UnityEvent<EnemyManager> OnInit { get; private set; } = new UnityEvent<EnemyManager>();
+    public UnityEvent OnReset { get; private set; } = new UnityEvent();
+    public UnityEvent<Transform> OnPlayerDetected { get; private set; } = new UnityEvent<Transform>();
+    public UnityEvent OnPlayerExit { get; private set; } = new UnityEvent(); 
 
     public void Init(EnemyManager _manager)
     {
@@ -33,5 +35,13 @@ public class EnemyStatus : MonoBehaviour
     {
         IsPlayerDetected = true;
         PlayerTransform = _player;
+        OnPlayerDetected?.Invoke(PlayerTransform);
+    }
+
+    public void PlayerExit()
+    {
+        IsPlayerDetected = false;
+        PlayerTransform = null;
+        OnPlayerExit?.Invoke();
     }
 }
