@@ -6,10 +6,20 @@ public class PlayerSkillManager : MonoBehaviour
 {
     [SerializeField] private PlayerInput input;
 
+    [SerializeField] private Transform skillPoint;
+
     [SerializeField] private SkillBase[] skills;
     SkillBase currentSkill = null;
     private int currentSkillIndex = -1;
     private bool isSkillSelected = false;
+
+    private void Awake()
+    {
+        foreach (var skill in skills)
+        {
+            skill.Init(skillPoint);
+        }
+    }
 
     private void Start()
     {

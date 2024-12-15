@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class SkillBase : MonoBehaviour
 {
-    [SerializeField] private GameObject skillOrbPrefab;
     [SerializeField] private GameObject skillPreview;
 
     [field: SerializeField]
@@ -12,6 +11,7 @@ public abstract class SkillBase : MonoBehaviour
 
     public bool IsCoolTime { get; private set; } = false;
 
+    public abstract void Init(Transform _parent);
 
     public virtual void UseSkill()
     {
