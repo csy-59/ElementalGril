@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMove : MonoBehaviour
 {
     [Header("Component")]
     [SerializeField] private PlayerInput input;
+    [SerializeField] private PlayerHP hp;
     [SerializeField] private Rigidbody rb;
 
     [Header("Player")]
@@ -15,15 +17,17 @@ public class PlayerMove : MonoBehaviour
     [Header("Status")]
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpForce = 1f;
-
+    [SerializeField] private float fallLimit = -5f;
 
     [Header("Camera Rotation")]
     [SerializeField] private float mouseSensitivity = 200;
     [SerializeField] private float maxXRotation = 30f;
     [SerializeField] private float minXRotation = -80f;
 
+    public UnityEvent OnFall { get; private set; } = new UnityEvent();
 
     private float xRotation = 0f;
+    private bool isCanJump = false;
 
     private void Awake()
     {
@@ -36,6 +40,7 @@ public class PlayerMove : MonoBehaviour
         CamaraRotateToCursor();
         Move();
         Jump();
+        CheckIfPlayerFall();
     }
 
     private void CamaraRotateToCursor()
@@ -67,6 +72,26 @@ public class PlayerMove : MonoBehaviour
         if (input.Jump == false)
             return;
 
+        if (isCanJump == false)
+            return;
+
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isCanJump = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.GetMask("Floor"))
+        {
+            isCanJump = true;
+        }
+    }
+
+    private void CheckIfPlayerFall()
+    { 
+        if(playerBody.transform.position.y <= fallLimit)
+        {
+            hp.PlayerFall();
+        }
     }
 }
