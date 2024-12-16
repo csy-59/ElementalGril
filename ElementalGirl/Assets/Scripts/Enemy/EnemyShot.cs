@@ -21,6 +21,10 @@ public class EnemyShot : MonoBehaviour
     private WaitForSeconds wfShotQualityCheck;
     private float nextShotOffsetTime = 0f;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clip;
+
     private void Awake()
     {
         InitializeShotObjList();
@@ -140,5 +144,7 @@ public class EnemyShot : MonoBehaviour
         EnemyShotObject ball = DequeueShotObj();
         ball.gameObject.SetActive(true);
         ball.Shot(parentTransform, status.PlayerTransform);
+
+        audioSource.PlayOneShot(clip);
     }
 }

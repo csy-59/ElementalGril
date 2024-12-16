@@ -19,6 +19,8 @@ public class MapClearSencer : MonoBehaviour
 
     private void OnPlayerSenced(GameObject _player)
     {
+        print("PlayerSenced");
+
         Transform player = _player.transform;
         while(player != null)
         {

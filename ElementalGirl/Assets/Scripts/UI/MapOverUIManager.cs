@@ -19,9 +19,13 @@ public class MapOverUIManager : UIBase
 
     public override void Close()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public override void Open()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

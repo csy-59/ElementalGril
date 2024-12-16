@@ -39,6 +39,7 @@ public class MapUIManager : UIBase
         for (int i = goalList.Count - 1; i >= 0; --i)
         {
             Destroy(goalList[i].gameObject);
+            goalList.RemoveAt(i);
         }
 
         foreach (var item in interactableObjs)
@@ -62,7 +63,7 @@ public class MapUIManager : UIBase
 
     private void SetHPUI(int _hp)
     {
-        hpImage.fillAmount = _hp / maxHp;
+        hpImage.fillAmount = (float)_hp / maxHp;
     }
 
     public override void Close()

@@ -29,12 +29,6 @@ public class PlayerMove : MonoBehaviour
     private float xRotation = 0f;
     private bool isCanJump = false;
 
-    private void Awake()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     private void Update()
     {
         CamaraRotateToCursor();
@@ -81,7 +75,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.GetMask("Floor"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
         {
             isCanJump = true;
         }

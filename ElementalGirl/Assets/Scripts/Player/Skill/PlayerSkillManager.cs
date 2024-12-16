@@ -42,6 +42,7 @@ public class PlayerSkillManager : MonoBehaviour
 
         bool isUp = input.SkillSelect > 0;
         int newSkillIndex = (currentSkillIndex + (isUp ? 1 : -1)) / skills.Length;
+        newSkillIndex = Mathf.Max(newSkillIndex, 0);
 
         SetSkill(newSkillIndex);
     }

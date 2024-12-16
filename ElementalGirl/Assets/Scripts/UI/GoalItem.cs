@@ -12,6 +12,7 @@ public class GoalItem : MonoBehaviour
     public void SetItem(InteractableObj interactableObj)
     {
         preview.sprite = interactableObj.PreviewSprite;
+        UpdateItem(interactableObj);
     }
 
     public void UpdateItem(InteractableObj interactableObj)

@@ -16,3 +16,4 @@ https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pb
 
 [맵]
 https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692(맵)
+https://assetstore.unity.com/packages/3d/environments/fantasy/stones-and-buried-treasure-95557(보석)

@@ -66,7 +66,7 @@ public class UIManger : MonoSingleton<UIManger>
         }
         else
         {
-            if (currentBaseUI != ui)
+            if (currentBaseUI == ui)
                 return;
 
             currentBaseUI.Close();
@@ -77,19 +77,20 @@ public class UIManger : MonoSingleton<UIManger>
 
     public void CloseAllUI()
     {
-        if (currentBaseUI != null)
-            return;
-
-        currentBaseUI.Close();
-        currentBaseUI.gameObject.SetActive(false);
-        currentBaseUI = null;
-
-        foreach(UIBase ui in coverUIStack)
+        for (int i = coverUIStack.Count - 1; i >= 0; --i)
         {
+            var ui = coverUIStack[i];
             ui.Close();
             ui.gameObject.SetActive(false);
 
             coverUIStack.Remove(ui);
         }
+
+        if (currentBaseUI == null)
+            return;
+
+        currentBaseUI.Close();
+        currentBaseUI.gameObject.SetActive(false);
+        currentBaseUI = null;
     }
 }

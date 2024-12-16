@@ -17,6 +17,11 @@ public class PlayerInteract : MonoBehaviour
         if (input.Interact == true)
         {
             interactableObj.Select();
+
+            isInteractable = false;
+            interactableObj = null;
+
+            UIManger.Instance.CloseUI<InteractUIManager>();
         }
     }
 
@@ -29,17 +34,6 @@ public class PlayerInteract : MonoBehaviour
 
             UIManger.Instance.GetUIManager<InteractUIManager>()?.SetUI(interactableObj.TriggeredStr);
             UIManger.Instance.OpenUI<InteractUIManager>();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("InteractableObj"))
-        {
-            isInteractable = false;
-            interactableObj = null;
-
-            UIManger.Instance.CloseUI<InteractUIManager>();
         }
     }
 }

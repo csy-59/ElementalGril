@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class MapManager : MonoBehaviour
+public class MapManager : MonoBehaviour
 {
     [Header("GameTime")]
     [SerializeField] private float gameTime;
@@ -15,6 +15,8 @@ public abstract class MapManager : MonoBehaviour
     [field: SerializeField] public Transform StartPosition;
     [SerializeField] private MapClearSencer stageEndSencer;
     [field: SerializeField] public List<InteractableObj> KeyList { get; private set; }
+
+    [field: SerializeField] public AudioClip BGM { get; private set; }
 
     private PlayerHP hp;
     private PlayerInput input;
@@ -69,10 +71,11 @@ public abstract class MapManager : MonoBehaviour
 
     private IEnumerator CoSetTimer()
     {
-        while(true)
-        {
-            elapsedTime += Time.deltaTime;
+        second = -1;
+        elapsedTime = 0f;
 
+        while (true)
+        {
             int newSecond = (int)elapsedTime;
             if (newSecond != second)
             {
@@ -80,11 +83,18 @@ public abstract class MapManager : MonoBehaviour
                 second = newSecond;
             }
 
-            if (elapsedTime <= gameTime)
-                OnGameOver();
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= gameTime)
+            {
+                break;
+            }
+
 
             yield return null;
         }
+
+        OnGameOver();
     }
 
     private void OnStageClear(Transform _player)
@@ -116,8 +126,11 @@ public abstract class MapManager : MonoBehaviour
     {
         StopAllCoroutines();
         input.IsInputAvailable = false;
+        Time.timeScale = 0f;
 
         DisconnectUI();
+
+        UIManger.Instance.OpenUI<MapClearUIManager>();
     }
 
     private void OnGameOver()
@@ -127,6 +140,8 @@ public abstract class MapManager : MonoBehaviour
         Time.timeScale = 0f;
 
         DisconnectUI();
+
+        UIManger.Instance.OpenUI<MapOverUIManager>();
     }
 
     private void DisconnectUI()

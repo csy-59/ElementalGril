@@ -145,11 +145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 6817477940023630980}
+  hp: {fileID: 206427031805015605}
   rb: {fileID: 7876511281547744214}
   playerBody: {fileID: 7912047745138052363}
   playerHead: {fileID: 1454391752249051231}
-  moveSpeed: 7
+  moveSpeed: 50
   jumpForce: 5
+  fallLimit: -5
   mouseSensitivity: 200
   maxXRotation: 30
   minXRotation: -80

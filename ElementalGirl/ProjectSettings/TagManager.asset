@@ -9,6 +9,7 @@ TagManager:
   - FireBall
   - ClickBlock
   - EnemyBall
+  - InteractableObj
   layers:
   - Default
   - TransparentFX
