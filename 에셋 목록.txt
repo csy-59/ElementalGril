@@ -17,3 +17,10 @@ https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pb
 [맵]
 https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692(맵)
 https://assetstore.unity.com/packages/3d/environments/fantasy/stones-and-buried-treasure-95557(보석)
+
+[BGM]
+https://pixabay.com/ko/music/bgm006-dark-fantasy-lo-fi-retro-game-148338/ (타이틀)
+https://pixabay.com/ko/music/wagon-train-hopeful-upbeat-country-western-theme-219749/ (엔딩)
+https://pixabay.com/ko/music/something-lost-185380/ (미로)
+https://pixabay.com/ko/music/moment-of-truth-215397/ (배틀)
+https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776 (기타 이펙트)
